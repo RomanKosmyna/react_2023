@@ -1,0 +1,54 @@
+.rickAndMortyContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-top: 6px dashed yellow;
+    margin-bottom: 40px;
+}
+
+.rickCharacterBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-top: 40px;
+    border-radius: 10%;
+    background: repeating-linear-gradient(
+            -45deg,
+            #606dbc,
+            #606dbc 10px,
+            #465298 10px, #465298 20px
+    );;
+}
+
+.rickCharacterBlock > h2 {
+    font-weight: 900;
+    font-size: 30px;
+    color: darkorange;
+}
+
+.rickCharacterBlock > h3 {
+    color: white;
+}
+
+.rickCharacterBlock > p {
+    color: white;
+    font-weight: 700;
+    font-size: 25px;
+    border-bottom: 5px solid darkorange;
+}
+
+.status {
+    color: lawngreen;
+}
+
+.rickCharacterBlock > img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.id {
+    color: yellow;
+}
+
