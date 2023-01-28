@@ -1,0 +1,8 @@
+.Album {
+    background: darkolivegreen;
+    border: 5px solid darkgray;
+    text-align: center;
+    color: snow;
+    font-size: 20px;
+    margin: 10px;
+}
