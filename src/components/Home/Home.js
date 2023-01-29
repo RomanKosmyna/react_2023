@@ -7,7 +7,7 @@ const Home = () => {
                 <h1>HOME PAGE</h1>
             </div>
             <div>
-                <img src="../images/image.jpg" alt="random image"/>
+
             </div>
         </div>
     );

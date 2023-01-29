@@ -1,7 +1,5 @@
 import css from './Comment.module.css';
 import {Link} from "react-router-dom";
-import {postService} from "../../services";
-import {urls} from "../../configs";
 
 const Comment = ({comment}) => {
     const {postId, id, name, email, body} = comment;
