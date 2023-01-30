@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {axiosConfig} from "../../configs";
+import {requestLinks} from "../../api";
+import {Post} from "../Post/Post";
 
 const Posts = () => {
-    return (
-        <div>
+    const [posts, setPosts] = useState([]);
 
+    useEffect(() => {
+        axiosConfig.get(requestLinks.posts)
+            .then(({data}) => setPosts(data))
+    }, []);
+
+    return (
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+            {posts.map(item => <Post key={item.id} post={item}/>)}
         </div>
     );
 };

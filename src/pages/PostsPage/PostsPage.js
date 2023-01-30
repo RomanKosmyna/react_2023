@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {axiosConfig} from "../../configs";
+import {requestLinks} from "../../api";
+import {Posts} from "../../components";
 
 const PostsPage = () => {
+
     return (
-        <div>
-            
-        </div>
+        <Posts/>
     );
 };
 
