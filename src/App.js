@@ -1,7 +1,9 @@
 import {MainLayout} from "./layouts";
-import {useRoutes} from "react-router-dom";
+import {Navigate, useRoutes} from "react-router-dom";
 import {HomePage, NotFoundPage, PostsPage, UsersPage} from "./pages";
 import {requestLinks} from "./api";
+import {LoginPage} from "./pages/LoginPage/LoginPage";
+import {RequireAuth} from "./hoc/RequireAuth";
 
 const App = () => {
     let routes = [
@@ -9,8 +11,12 @@ const App = () => {
          element: <MainLayout/>,
          children: [
              {element: <HomePage/>, path: '/'},
-             {element: <PostsPage/>, path: requestLinks.posts},
+             {element: <RequireAuth/>, path: requestLinks.posts,
+             children: [
+                 {element: <PostsPage/>}
+             ]},
              {element: <UsersPage/>, path: requestLinks.users},
+             {element: <LoginPage/>, path: '/login'},
              {element: <NotFoundPage/>, path: '*'}
             ]
         }
