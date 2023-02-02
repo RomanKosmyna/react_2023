@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className={css.Header}>
             <NavLink to={'/'}>Home</NavLink>
-            <NavLink to={'posts'}>Posts</NavLink>
+            <NavLink to={'/posts'}>Posts</NavLink>
             <NavLink to={'comments'}>Comments</NavLink>
         </div>
     );
