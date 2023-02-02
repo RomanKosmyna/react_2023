@@ -1,28 +1,24 @@
 import {Component} from "react";
+import {axiosRequest} from "../../config";
+import {requestLinks} from "../../api";
 
 class Comments extends Component {
     constructor(props) {
         super(props);
-        this.state = {a:0, b:25};
+        this.state = {
+            comments: []
+        }
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('prevProps', prevProps);
-        console.log('prevState', prevState);
-    }
-
-    inc() {
-        this.setState(prev => ({a:prev.a + 1}))
+    componentDidMount() {
+        axiosRequest.get(requestLinks.comments)
+            .then(({data}) => this.setState({comments: data}))
     }
 
     render() {
-        // console.log(this.inc())
         return  (
             <div>
-                <div>A: {this.state.a}</div>
-                <div>B: {this.state.b}</div>
-                {/*<div>C: {this.state.c}</div>*/}
-                <button onClick={() => this.inc()}>Click</button>
+                {this.state.comments.map(comment => <div key={comment.id}>{comment.id} --- {comment.name}</div>)}
             </div>
         )
     }
