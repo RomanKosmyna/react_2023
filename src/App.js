@@ -1,4 +1,4 @@
-import {CommentsPage, HomePage, PostsPage} from "./pages";
+import {AnimalsPage, CommentsPage, HomePage, PostsPage} from "./pages";
 import {MainLayout} from "./layouts";
 import {useRoutes} from "react-router-dom";
 
@@ -7,8 +7,9 @@ const App = () => {
         {element: <MainLayout/>, path: '/',
         children: [
             {element: <HomePage/>, index: true},
-            {element: <PostsPage/>, path: '/posts'},
-            {element: <CommentsPage/>, path: '/comments'}
+            {element: <PostsPage/>, path: 'posts'},
+            {element: <CommentsPage/>, path: 'comments'},
+            {element: <AnimalsPage/>, path: 'animals'}
         ]}
     ];
 
