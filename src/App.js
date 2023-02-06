@@ -1,10 +1,14 @@
-import {useReducer} from "react";
-import {logDOM} from "@testing-library/react";
+import {useReducer, useRef} from "react";
 
 const App = () => {
+    const cat = useRef(null);
 
-    function reducer() {
-
+    function reducer(state, action) {
+        switch (action.type) {
+            case 'cat':
+                return {...state, cats: cat.current.value}
+                // console.log(...state.cats)
+        }
     }
 
     function initValue() {
@@ -12,28 +16,13 @@ const App = () => {
     }
 
     const [state, dispatch] = useReducer(reducer, null, initValue);
-
     console.log(state)
   return (
       <div>
-          <div className={'formBlock'}>
-              <form>
-                  Add Cat:
-                  <input type="text" placeholder={'cat'}/>
-                  <button onClick={() => console.log()}>Save</button>
-
-                  Add Dog:
-                  <input type="text" placeholder={'dog'}/>
-                  <button>Save</button>
-              </form>
-          </div>
-          <hr/>
-          <div className={'infoBlock'}>
-              <div className={'cat'}></div>
-              <div className={'dog'}></div>
-          </div>
+          <input type="text" placeholder={'cat'} ref={cat}/>
+          <button onClick={() => dispatch({type: 'cat'})}>Save</button>
       </div>
-  );
+  )
 };
 
 export default App;
